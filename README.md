@@ -131,7 +131,7 @@ If you want to create separate authentication credentials for each Jenkins job:
 1. In the configuration of your Jenkins job, in the GitLab configuration section, click 'Advanced'
 2. Click the 'Generate' button under the 'Secret Token' field
 3. Copy the resulting token, and save the job configuration
-4. In GitLab, create a webhook for your project, enter the trigger URL (e.g. `https://JENKINS_URL/project/YOUR_JOB`) and paste the token in the Secret Token field
+4. In GitLab, create a webhook for your project, enter the trigger URL (e.g. `https://JENKINS_URL/project/YOUR_JOB`), and paste the token in the Secret Token field
 5. After you add the webhook, click the 'Test' button, and it should succeed
 
 #### Disabling authentication
