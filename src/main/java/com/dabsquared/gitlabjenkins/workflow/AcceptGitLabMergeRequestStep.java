@@ -122,13 +122,14 @@ public class AcceptGitLabMergeRequestStep extends Step {
         }
 
         private String getCommitMessage(MergeRequest mergeRequest) {
-            if (!step.useMRDescription || StringUtils.isEmpty(step.mergeCommitMessage)) {
-                return step.mergeCommitMessage;
-            }
+            if (!step.useMRDescription) return step.mergeCommitMessage;
 
-            return String.format("Merge branch '%s' into '%s'\n\n%s\n\n%s\n\nSee merge request !%d",
-                    mergeRequest.getSourceBranch(), mergeRequest.getTargetBranch(),
-                    mergeRequest.getTitle(), mergeRequest.getDescription(), mergeRequest.getIid());
+            String message = "Merge branch '" + mergeRequest.getSourceBranch() + "' into '"
+                    + mergeRequest.getTargetBranch() + "'\n\n" + mergeRequest.getTitle()
+                    + "\n\n" + mergeRequest.getDescription()
+                    + "\n\n" + "See merge request !"
+                    + mergeRequest.getIid();
+            return message;
         }
 
         private void println(String message) {
